@@ -1,3 +1,3 @@
 # Projeto Prático LOGICOMP
-Refeito
+Refeito e 100% Funcional
 Carlos Eduardo Freitas Vidal
