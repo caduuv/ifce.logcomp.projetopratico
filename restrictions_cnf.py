@@ -6,7 +6,7 @@ def restriction1(rules_num, attributes):
     for rule in range(0, rules_num):
         lista_somentes = []
         for attr in range(0, len(attributes)-1):
-            """
+            """ 
             (A∧¬B∧¬C) ∨ (¬A∧B∧¬C) ∨ (¬A∧¬B∧C) in CNF is: 
             (¬A ∨ ¬B) ∧ (¬A ∨ ¬C) ∧ (B ∨ ¬C ∨ ¬A) ∧ (¬C ∨ A ∨ ¬B) ∧ (¬C ∨ ¬B) ∧ (B ∨ A ∨ C)
 
@@ -71,7 +71,7 @@ def restriction3(rules_num, file):
     return(clauses_list)
 
 def restriction4(rules_num, file):
-    max_size = ( 3* (len(file[0])-2) + 3 * (len(file[0]) - 1)*(rules_num) ) + 3
+    max_size = ( 3* (len(file[0])-2) + 3 * (len(file[0]) - 1)*(rules_num - 1)) + 3
     p_index = len(file[0]) - 1
     clauses_list = []
     for rule in range(0, rules_num):
@@ -91,7 +91,7 @@ def restriction4(rules_num, file):
     return(clauses_list)  
 
 def restriction5(rules_num, file):
-    max_size = ( 3* (len(file[0])-2) + 3 * (len(file[0]) - 1)*rules_num ) + 3
+    max_size = ( 3* (len(file[0])-2) + 3 * (len(file[0]) - 1)*(rules_num - 1)) + 3
     p_index = len(file[0]) - 1
     clauses = []
     for patient in range(1, len(file)):
