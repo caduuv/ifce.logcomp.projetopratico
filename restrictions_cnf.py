@@ -1,5 +1,4 @@
-from xml.dom.minidom import Attr
-
+from txt_manipulations import write_txt
 def restriction1(rules_num, attributes):
 
     and_list = []
@@ -101,4 +100,17 @@ def restriction5(rules_num, file):
                 for_patient.append((max_size + (rules_num)*rule + patient))
             clauses.append(for_patient)
     return(clauses)
-        
+
+def cnf_create_restrictions(file_name, my_file, rules_num):
+
+    withPatologyCounter = 0
+    for patient in my_file:
+        if(patient[len(patient)-1]) == "1":
+            withPatologyCounter+=1
+
+    attributes = my_file[0]
+    max_size = ( 3* (len(my_file[0])-2) + 3 * (len(my_file[0]) - 1)*(rules_num - 1)) + 3 + withPatologyCounter * rules_num
+
+    all_restrictions = restriction1(rules_num, attributes) + restriction2(rules_num, attributes) + restriction3(rules_num, my_file) + restriction4(rules_num, my_file) + restriction5(rules_num, my_file)
+    write_txt(all_restrictions, file_name, max_size, len(all_restrictions), rules_num, '.cnf')
+    return all_restrictions

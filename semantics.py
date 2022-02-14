@@ -1,7 +1,6 @@
 """The goal in this module is to define functions associated with the semantics of formulas in propositional logic. """
 
 
-from asyncio.windows_events import NULL
 from formula import *
 from functions import atoms
 
