@@ -1,5 +1,5 @@
 def write_txt(file, file_name, variables, clauses, rules_num, format):
-    with open('CNF\\' + file_name + '-' + str(rules_num) + 'rules' + format, 'w') as arquivo:
+    with open('CNF/' + file_name + '-' + str(rules_num) + 'rules' + format, 'w') as arquivo:
         arquivo.write('c' + '     ' + file_name + '\n')
         arquivo.write('c' + '     ' + '---------EQUIPE--------' + '\n')
         arquivo.write('c' + '     ' + 'Carlos Eduardo Freitas' + '\n')

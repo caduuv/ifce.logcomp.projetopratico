@@ -1,7 +1,7 @@
 import csv
 
 def open_csv(file_name):
-    with open('./pacientes/' + file_name + '.csv') as csv_file:
+    with open('pacientes/' + file_name + '.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         csv_array = []
         for row in csv_reader:

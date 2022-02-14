@@ -1,5 +1,6 @@
 from operator import and_
 from formula import *
+from semantics import satisfiability_brute_force
 
 def and_all(list_formulas):
     """Realiza um And com a lista de fórmulas"""
@@ -117,3 +118,17 @@ def fifth_restriction(rules_num, file):
             inner_list.append(or_all(patient_or_list))
     return(and_all(inner_list))
                 
+def bf_create_restrictions(my_file, rules_num):
+    final_formula = And(
+        first_restriction(rules_num, my_file[0]),
+        And(
+            second_restriction(rules_num, my_file[0]),
+            And(
+                third_restriction(rules_num, my_file),
+                And(fourth_restriction(rules_num, my_file),
+                    fifth_restriction(rules_num, my_file)
+                )
+            )
+        )
+    )
+    return final_formula
